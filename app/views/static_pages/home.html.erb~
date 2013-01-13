@@ -1,14 +1,6 @@
-<% provide(:title, 'Foo') %>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Ruby on Rails Tutorial Sample App | <%= yield(:title) %></title>
-  </head>
-  <body>
+<% provide(:title, 'Home') %>
     <h1>Projet App</h1>
     <p> Ceci est la page d'accueil de
 	  <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
 	  l'application projet.
    </p>
-  </body>
-</html>

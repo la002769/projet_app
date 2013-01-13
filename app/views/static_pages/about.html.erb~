@@ -1,4 +1,4 @@
-<% provide(:title, 'About Us') %>
+<% provide(:title, 'About') %>
 <h1>About</h1>
 <p>
 	About what ? ^^ Ceci est la page à propos de ce projet.
