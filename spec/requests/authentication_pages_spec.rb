@@ -70,6 +70,14 @@ describe "when attempting to visit a protected page" do
         end
       end
 
+describe "in the Publications controller" do
+
+        describe "submitting to the create action" do
+          before { post publications_path }
+          specify { response.should redirect_to(signin_path) }
+        end
+        end
+
       describe "in the Users controller" do
 
         describe "visiting the edit page" do

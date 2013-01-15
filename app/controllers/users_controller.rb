@@ -5,6 +5,7 @@ before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
   
   def show
     @user = User.find(params[:id])
+    @publications = @user.publications.paginate(page: params[:page])
   end
   
   def new
