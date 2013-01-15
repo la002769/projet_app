@@ -28,7 +28,7 @@ describe User do
 
   it { should be_valid }
   
-  
+  it { should respond_to(:authenticate) }
 
   describe "when name is not present" do
     before { @user.name = " " }
@@ -86,6 +86,10 @@ describe "when password doesn't match confirmation" do
   it { should_not be_valid }
 end
 
+describe "when password confirmation is nil" do
+  before { @user.password_confirmation = nil }
+  it { should_not be_valid }
+end
   
 end
 
