@@ -4,14 +4,15 @@
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages' %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>
       
-      <%= f.label :first_name %>
+      <%= f.label :first_name, "First_Name" %>
       <%= f.text_field :first_name %>
       
-      <%= f.label :last_name %>
+      <%= f.label :last_name, "Last_Name" %>
       <%= f.text_field :last_name %>
 
       <%= f.label :email %>
