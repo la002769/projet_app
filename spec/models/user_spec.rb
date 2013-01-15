@@ -15,7 +15,7 @@ describe User do
 
   before do
      @user = User.new(name: "Example User", email: "user@example.com", 
-                     password: "foobar", password_confirmation: "foobar", first_name: "Example", last_name: "User")
+                     password: "foobar", password_confirmation: "foobar")
   end
 
   subject { @user }
@@ -27,8 +27,6 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
-  it { should respond_to(:first_name) }
-  it { should respond_to(:last_name) }
 
 
   it { should be_valid }
@@ -114,26 +112,6 @@ end
       specify { user_for_invalid_password.should be_false }
     end
   end
-  
-  describe "when first_name is not present" do
-   before { @user.first_name = " " }
-   it { should_not be_valid }
- end
-  
- describe "when first_name is too long" do
-   before { @user.first_name = "a" * 51 }
-   it { should_not be_valid }
- end
-  
-   describe "when last_name is not present" do
-   before { @user.last_name = " " }
-   it { should_not be_valid }
- end
-  
- describe "when last_name is too long" do
-   before { @user.last_name = "a" * 51 }
-   it { should_not be_valid }
- end
  
  describe "remember token" do
     before { @user.save }

@@ -34,8 +34,6 @@ describe "User pages" do
     describe "with valid information" do
       before do
         fill_in "Name",         with: "Example User"
-        fill_in "First Name",         with: "foobar"
-        fill_in "Last Name",         with: "foobar"
         fill_in "Email",        with: "user@example.com"
         fill_in "Password",     with: "foobar"
         fill_in "Confirmation", with: "foobar"
@@ -57,8 +55,12 @@ describe "User pages" do
     
   end
   
-  describe "edit" do
+describe "edit" do
     let(:user) { FactoryGirl.create(:user) }
+ before do
+      sign_in user
+      visit edit_user_path(user)
+    end
     before { visit edit_user_path(user) }
 
     describe "page" do
@@ -72,8 +74,7 @@ describe "User pages" do
 
       it { should have_content('error') }
     end
-    
-    describe "with valid information" do
+describe "with valid information" do
       let(:new_name)  { "New Name" }
       let(:new_email) { "new@example.com" }
       before do
@@ -90,7 +91,5 @@ describe "User pages" do
       specify { user.reload.name.should  == new_name }
       specify { user.reload.email.should == new_email }
     end
-    
   end
-  
 end
